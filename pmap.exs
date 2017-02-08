@@ -18,9 +18,8 @@ defmodule Parallel do
         end
       )
   end
-
 end
 
 
 list = 1..1000
-IO.inspect Parallel.pmap list, &(&1 + 1)
+IO.inspect Parallel.pmap list, &(&1 + &1)
