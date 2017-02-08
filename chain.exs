@@ -8,11 +8,12 @@ defmodule Chain do
   end
 
   def create_processes(n) do
-    last = Enum.reduce 1..n, self, fn(_, send_to) -> spawn(Chain, :counter, [send_to])
+    last = Enum.reduce 1..n, self(), fn(_, send_to) -> spawn(Chain, :counter, [send_to]) end
     send last, 0
 
     receive do
-      final_answer when is_integer(final_answer) ->
+      final_answer ->
+      #final_answer when is_integer(final_answer) ->
         "Result is #{inspect final_answer}"
     end
   end
@@ -22,3 +23,5 @@ defmodule Chain do
   end
 
 end
+
+Chain.run(10)
