@@ -42,9 +42,8 @@ defmodule Scheduler do
           Enum.sort(results, fn({n1, _}, {n2, _}) -> n1 <= n2 end)
         end
 
-        {:answer, number, result, _pid} ->
-          schedule_processes(processes, queue, [{number, result} | results])
-
+      {:answer, number, result, _pid} ->
+        schedule_processes(processes, queue, [{number, result} | results])
     end
   end
 end
