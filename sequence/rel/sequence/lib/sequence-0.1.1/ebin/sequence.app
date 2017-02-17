@@ -1,0 +1,11 @@
+{application,sequence,
+             [{applications,[kernel,stdlib,elixir,logger,exrm]},
+              {description,"sequence"},
+              {modules,['Elixir.Sequence','Elixir.Sequence.SeqSupervisor',
+                        'Elixir.Sequence.Server','Elixir.Sequence.Stash',
+                        'Elixir.Sequence.Supervisor']},
+              {vsn,"0.1.1"},
+              {extra_applications,[logger]},
+              {mod,{'Elixir.Sequence',[]}},
+              {registered,['Elixir.Sequence.Server']},
+              {env,[{initial_number,0}]}]}.
