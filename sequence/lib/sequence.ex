@@ -2,13 +2,7 @@ defmodule Sequence do
   use Application
 
   def start(_type, _args) do
-    import Supervisor.Spec, warn: false
-
-    children = [
-      worker(Sequence.Server, [123])
-    ]
-
-    opts = [strategy: :one_for_one, name: Sequence.Supervisor]
-    Supervisor.start_link(children, opts)
+    # Starting main supervisor and sending initial value
+    {:ok, _pid} = Sequence.Supervisor.start_link(123)
   end
 end
